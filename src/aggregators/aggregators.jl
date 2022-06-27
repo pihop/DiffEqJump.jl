@@ -144,7 +144,9 @@ doi: 10.1063/1.4928635
 """
 struct DirectCRDirect <: AbstractAggregatorAlgorithm end
 
-const JUMP_AGGREGATORS = (Direct(),DirectFW(),DirectCR(),SortingDirect(),RSSA(),FRM(),FRMFW(),NRM(),RSSACR(),RDirect())
+struct Extrande <: AbstractAggregatorAlgorithm end
+
+const JUMP_AGGREGATORS = (Direct(),DirectFW(),DirectCR(),SortingDirect(),RSSA(),FRM(),FRMFW(),NRM(),RSSACR(),RDirect(),Extrande())
 
 # For JumpProblem construction without an aggregator
 struct NullAggregator <: AbstractAggregatorAlgorithm end
@@ -166,3 +168,6 @@ needs_vartojumps_map(aggregator::RSSACR) = true
 is_spatial(aggregator::AbstractAggregatorAlgorithm) = false
 is_spatial(aggregator::NSM) = true
 is_spatial(aggregator::DirectCRDirect) = true
+
+is_ficticious(aggregator::AbstractAggregatorAlgorithm) = false
+is_ficticious(aggregator::Extrande) = true

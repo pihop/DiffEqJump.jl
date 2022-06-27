@@ -25,4 +25,5 @@ using DiffEqJump, DiffEqBase, SafeTestsets
   @time @safetestset "Spatial A + B <--> C" begin include("spatial/ABC.jl") end
   @time @safetestset "Spatially Varying Reaction Rates" begin include("spatial/spatial_majump.jl") end
   @time @safetestset "Pure diffusion" begin include("spatial/diffusion.jl") end
+  @time @safetestset "Ficticious Jump " begin include("extrande.jl") end
 end
